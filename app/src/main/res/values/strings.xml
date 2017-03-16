@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">TrumpNews</string>
+    <string name="no_internet_connection">No internet connection found!</string>
+    <string name="no_news">No news articles found</string>
+    <!-- Settings Menu Item [CHAR LIMIT=NONE] -->
+    <string name="settings_menu_item">Settings</string>
+    <!-- Settings Activity Title [CHAR LIMIT=NONE] -->
+    <string name="settings_title">Trump News Settings</string>
+    <!-- Strings For Article number Preference [CHAR LIMIT=30] -->
+    <string name="settings_num_articles_label">Number of articles</string>
+    <string name="settings_num_articles_key" translatable="false">num_articles</string>
+    <string name="settings_num_articles_default" translatable="false">10</string>
+    <!-- Strings For Order-By Preference [CHAR LIMIT=30] -->
+    <string name="settings_order_by_label">Order By</string>
+    <string name="settings_order_by_key" translatable="false">order_by</string>
+    <string name="settings_order_by_default" translatable="false">@string/settings_order_by_most_recent_label</string>
+    <!-- Label for order-by Oldest first option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_oldest_label">Newest Last</string>
+    <string name="settings_order_by_oldest_value" translatable="false">oldest</string>
+    <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
+    <string name="settings_order_by_most_recent_label">Newest First</string>
+    <string name="settings_order_by_most_recent_value" translatable="false">newest</string>
+</resources>
