@@ -14,10 +14,9 @@
     <string name="settings_order_by_label">Order By</string>
     <string name="settings_order_by_key" translatable="false">order_by</string>
     <string name="settings_order_by_default" translatable="false">@string/settings_order_by_most_recent_label</string>
-    <!-- Label for order-by Oldest first option [CHAR LIMIT=20] -->
-    <string name="settings_order_by_oldest_label">Newest Last</string>
-    <string name="settings_order_by_oldest_value" translatable="false">oldest</string>
-    <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
+     <!-- Label for order-by most recent option [CHAR LIMIT=20] -->
     <string name="settings_order_by_most_recent_label">Newest First</string>
     <string name="settings_order_by_most_recent_value" translatable="false">newest</string>
+    <string name="banner_ad_unit_id">ca-app-pub-7202534023556134/3723513400</string>
+
 </resources>

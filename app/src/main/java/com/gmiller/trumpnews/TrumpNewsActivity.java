@@ -11,7 +11,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,12 +18,16 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TrumpNewsActivity extends AppCompatActivity
         implements LoaderManager.LoaderCallbacks<List<TrumpNews>> {
-
+    private AdView mAdView;
     private static final String LOG_TAG = TrumpNewsActivity.class.getName();
 
     /**
@@ -54,10 +57,17 @@ public class TrumpNewsActivity extends AppCompatActivity
      */
     private TextView mEmptyStateTextView;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trumpnews_activity);
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-7202534023556134~4390628205");
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         // Find a reference to the {@link ListView} in the layout
         ListView trumpnewsListView = (ListView) findViewById(R.id.list);
@@ -124,18 +134,13 @@ public class TrumpNewsActivity extends AppCompatActivity
         String numArticles = sharedPrefs.getString(
                 getString(R.string.settings_num_articles_key),
                 getString(R.string.settings_num_articles_default));
-        String orderBy = sharedPrefs.getString(
-                getString(R.string.settings_order_by_key),
-                getString(R.string.settings_order_by_default)
-        );
-        Log.e(LOG_TAG, "url: " + GUARDIAN_REQUEST_URL);
+
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-        uriBuilder.appendQueryParameter("order-by", orderBy);
-        Log.e(LOG_TAG, "url: " + uriBuilder.toString());
+        uriBuilder.appendQueryParameter("order-by", "newest");
         uriBuilder.appendQueryParameter("page-size", numArticles);
-        String url = uriBuilder.toString() + "&api-key=test";
-        Log.e(LOG_TAG, "url: " + url);
+        String url = uriBuilder.toString() + "&from-date=2017-03-01&api-key=68fe4d10-dc4c-4861-a163-be8e43103ac4";
+
         return new TrumpNewsLoader(this, url);
     }
 
